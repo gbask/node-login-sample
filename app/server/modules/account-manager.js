@@ -22,9 +22,9 @@ var accounts = db.collection('accounts');
 */
 /* login validation methods */
 
-var mongoUri = process.env.MONGOHQ_URI || process.env.MONGOHQ_URL;
+var mongoUrl = process.env.MONGOHQ_URL;
 
-mongoDB.connect(mongoUri, function (err, db) {
+mongoDB.connect(mongoUrl, function (err, db) {
 	db.collection('accounts', function(er, collection) {
 		collection.insert({'user': 'user1'}, {safe: true}, function(er, rs) {
 		});
