@@ -3,12 +3,12 @@ var crypto 		= require('crypto');
 var MongoDB 	= require('mongodb').Db;
 var Server 		= require('mongodb').Server;
 var moment 		= require('moment');
-
+/*
 var dbPort 		= 27017;
 var dbHost 		= 'localhost';
 var dbName 		= 'node-login';
 
-/* establish the database connection */
+/* establish the database connection 
 
 var db = new MongoDB(dbName, new Server(dbHost, dbPort, {auto_reconnect: true}), {w: 1});
 	db.open(function(e, d){
@@ -19,8 +19,18 @@ var db = new MongoDB(dbName, new Server(dbHost, dbPort, {auto_reconnect: true}),
 	}
 });
 var accounts = db.collection('accounts');
-
+*/
 /* login validation methods */
+
+var mongoUri = process.env.MONGOHQ_URI || process.env.MONGOHQ_URL;
+
+mongoDB.connect(mongoUri, function (err, db) {
+	db.collection('accounts', function(er, collection) {
+		collection.insert({'user': 'user1'}, {safe: true}, function(er, rs) {
+		});
+	});
+});
+
 
 exports.autoLogin = function(user, pass, callback)
 {
