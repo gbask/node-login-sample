@@ -13,21 +13,21 @@ var dbPassword	= 'tonys1';
 /* establish the database connection */
 
 var db = new MongoDB(dbName, new Server(dbHost, dbPort, {auto_reconnect: true}), {w: 1});
+
 	db.open( function(err) {
 		db.authenticate(
 			dbUserName,
 			dbPassword,
-			function(e, d){
-			if (e) {
-			console.log(e);
-			}	else{
-				console.log('connected to database :: ' + dbName);
+			function(err){
+				if (err) {
+				console.log(err);
+				}	else{
+					console.log('connected to database :: ' + dbName);
+				}
 			}
-		}
-	);
-	
-	
+		);
 	});
+
 var accounts = db.collection('accounts');
 
 /* login validation methods */
