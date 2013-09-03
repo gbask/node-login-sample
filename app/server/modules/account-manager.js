@@ -6,7 +6,7 @@ var moment 		= require('moment');
 
 var dbPort 		= 10033;
 var dbHost 		= 'paulo.mongohq.com';
-var dbName 		= 'localex_sample_1';
+var dbName 		= 'local_ex_sample_1';
 
 /* establish the database connection */
 
